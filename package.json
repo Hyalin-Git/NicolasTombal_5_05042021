@@ -1,0 +1,25 @@
+{
+  "name": "projet-5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass-dev": "sass --watch ./sass/style.scss:./css/style.css",
+    "sass-prod": "sass ./sass/style.scss:./css/style.css --style=compressed",
+    "prefix": "postcss ./css/style.css --use autoprefixer -d ./css/prefixed/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Childe-Git/NicolasTombal_5_05042021.git"
+  },
+  "author": "Tombal",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Childe-Git/NicolasTombal_5_05042021/issues"
+  },
+  "homepage": "https://github.com/Childe-Git/NicolasTombal_5_05042021#readme",
+  "dependencies": {
+    "bootstrap": "^4.6.0"
+  }
+}
