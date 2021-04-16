@@ -79,63 +79,26 @@
                 </div>
              </div>
             <section>
-                <div class="container col-lg-11">
+                <div class="container-fluid">
                     <h2 id="appareils" class="mb-4">Nos appareils photos</h2>
                     <div class="row mb-5">
                         <div class="col">
-                        <input class="form-control" id="searchInput" type="text" placeholder="Search..">
+                        <input class="form-control" id="searchInput" type="text" placeholder="Recherchez un appareil...">
                         </div>
                     </div>
-                    <div class="row" id="listeproduit">
-                        <div class="col col-lg-3">
-                            <div class="card shadow border-info mb-5">
-                                <img src="http://localhost:3000/images/vcam_1.jpg" alt="">
-                                <div class="card-body">
-                                    <h3 class="card-title">Caméra</h3>
-                                    <p class="card-text">...</p>
-                                    <a href="produit.html" class="btn btn-info"><i class="fas fa-info mr-2"></i>Voir ce produit</a>          
+                    <div id="photoList">
+                        <div class="row" id="listeproduit">
+                            <!-- <div class="col col-lg-3">
+                                <div class="card shadow border-info mb-5">
+                                    <img src="${this.produits[i].imageUrl}" alt="">
+                                    <div class="card-body">
+                                        <h3 class="card-title">${this.produits[i].name}</h3>
+                                        <p class="card-text lead">Prix : ${this.produits[i].price}€</p>
+                                        <p class="card-text">${this.produits[i].description}</p>
+                                        <a href="produit.html" class="btn btn-info"><i class="fas fa-info mr-2"></i>Voir ce produit</a>          
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-3">
-                            <div class="card shadow border-info mb-5">
-                                <img src="http://localhost:3000/images/vcam_2.jpg" alt="">
-                                <div class="card-body">
-                                    <h3 class="card-title">Caméra</h3>
-                                    <p class="card-text">...</p>
-                                    <a href="produit.html" class="btn btn-info"><i class="fas fa-info mr-2"></i>Voir ce produit</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-3">
-                            <div class="card shadow border-info mb-5">
-                                <img src="http://localhost:3000/images/vcam_3.jpg" alt="">
-                                <div class="card-body">
-                                    <h3 class="card-title">Caméra</h3>
-                                    <p class="card-text">...</p>
-                                    <a href="produit.html" class="btn btn-info"><i class="fas fa-info mr-2"></i>Voir ce produit</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-3">
-                            <div class="card shadow border-info mb-5">
-                                <img src="http://localhost:3000/images/vcam_4.jpg" alt="">
-                                <div class="card-body">
-                                    <h3 class="card-title">Caméra</h3>
-                                    <p class="card-text">...</p>
-                                    <a href="produit.html" class="btn btn-info"><i class="fas fa-info mr-2"></i>Voir ce produit</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-3">
-                            <div class="card shadow border-info mb-5">
-                                <img src="http://localhost:3000/images/vcam_5.jpg" alt="">
-                                <div class="card-body">
-                                    <h3 class="card-title">Caméra</h3>
-                                    <p class="card-text">...</p>
-                                    <a href="produit.html" class="btn btn-info"><i class="fas fa-info mr-2"></i>Voir ce produit</a>
-                                </div>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -167,5 +130,18 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        
+        <!--Barre de recherche-->
+        <script>
+        $(document).ready(function(){
+            $("#searchInput").on("keyup", function() {
+               var value = $(this).val().toLowerCase();
+               $("#photoList .col-lg-3").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+               });
+            });
+        });
+        </script>
+
     </body>
 </html>
