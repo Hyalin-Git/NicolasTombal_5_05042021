@@ -1,0 +1,28 @@
+// Couleur Du Logo & Titre // 
+
+.Color
+{
+  &__logo
+    {  
+        background-image: linear-gradient($cyan, $purple);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 600;
+    }
+    &__title
+    {
+        background-image: linear-gradient($cyan, $purple);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+
+
+
+// Taille Text De La Banniere // 
+
+.textBanner
+{
+    font-size: 1.3em;
+}

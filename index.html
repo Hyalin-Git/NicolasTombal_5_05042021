@@ -1,147 +1,157 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="css\style.css">
 
-        <script src="https://kit.fontawesome.com/a2cde35cc4.js" crossorigin="anonymous"></script>
-        <script src="js/boutique.js"></script>
+    <script src="https://kit.fontawesome.com/a2cde35cc4.js" crossorigin="anonymous"></script>
+    <script src="js/boutique.js"></script>
 
-        <title>Oricam</title>
-    </head>
+    <title>Oricam</title>
+</head>
+<body class="bg-light" onload="boutique.recupereProduits()">
 
-    <body class="bg-light" onload="boutique.recupereProduits()">
-        <header>
-            <div class="bg-dark mb-4 shadow-sm">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <nav class="col navbar navbar-expand-md navbar-dark">
-                                <a class="navbar-brand" href="index.html">
-                                    <h1 class="h2">
-                                        <i class="fas fa-shopping-cart"></i>
-                                        Oricam
-                                    </h1>
-                                </a>
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div id="navbarContent" class="collapse navbar-collapse">
-                                    <ul class="navbar-nav">
-                                        <li class="nav_item">                                   
-                                            <a class="nav-link text-center text-light" href="panier.html">Panier</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <main class="container col-lg-10 mt-5">
-            <div class="container col-lg-12 mb-lg-5 mb-3">
-                <div class="row">
-                    <div class="col">
-                        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                            </ol>
-                            <div class="carousel-inner rounded border border-info shadow">
-                              <div class="carousel-item active">
-                                <img src="images/fondappareilphoto2.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h2>Équipement de photographie</h2>
-                                    <p class="textBanner">Découvrez notre sélection d'appareil photo, que vous soyez amateurs ou experts en photographie<br> c'est ici que vous trouverez votre bonheur.</p>
-                                    <div class="mb-3">
-                                     <a href="#appareils">Notre sélection</a>
-                                    </div>
-                                </div>
-                              </div>
-                              <div class="carousel-item">
-                                <img src="images/appareilphoto.jpg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h2>Équipement de photographie</h2>
-                                    <p class="textBanner">Découvrez notre sélection d'appareil photo, que vous soyez amateurs ou experts en photographie<br> c'est ici que vous trouverez votre bonheur.</p>
-                                    <div class="mb-3">
-                                     <a href="#appareils">Notre sélection</a>
-                                    </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                    </div>
-                </div>
-             </div>
-            <section>
-                <div class="container-fluid">
-                    <h2 id="appareils" class="mb-4">Nos appareils photos</h2>
-                    <div class="row mb-5">
-                        <div class="col">
-                        <input class="form-control" id="searchInput" type="text" placeholder="Recherchez un appareil...">
-                        </div>
-                    </div>
-                    <div id="photoList">
-                        <div class="row" id="listeproduit">
-                            <!-- <div class="col col-lg-3">
-                                <div class="card shadow border-info mb-5">
-                                    <img src="${this.produits[i].imageUrl}" alt="">
-                                    <div class="card-body">
-                                        <h3 class="card-title">${this.produits[i].name}</h3>
-                                        <p class="card-text lead">Prix : ${this.produits[i].price}€</p>
-                                        <p class="card-text">${this.produits[i].description}</p>
-                                        <a href="produit.html" class="btn btn-info"><i class="fas fa-info mr-2"></i>Voir ce produit</a>          
-                                    </div>
-                                </div>
-                            </div>-->
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="bg-dark mt-5 shadow-sm">
+    <!-- H E A D E R --> 
+    <header>
+        <div class="bg-dark mb-4 shadow-sm">
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h4 class="text-center text-light mb-3 pt-3">Nos autres applications</h4>
-                        <ul class="list-inline text-center text-light">
-                            <li class="list-inline-item"><a href="#" class="text-white">Oribook</a></li>
-                            <li class="list-inline-item">&middot;</li>
-                            <li class="list-inline-item"><a href="#" class="text-white">Oritextil</a></li>
-                            <li class="list-inline-item">&middot;</li>
-                            <li class="list-inline-item"><a href="#" class="text-white">Orimeuble</a></li>
-                            <li class="list-inline-item">&middot;</li>
-                            <li class="list-inline-item"><a href="#" class="text-white">Orinours</a></li>
-                            </ul>
+                        <nav class="col navbar navbar-expand-md navbar-dark">
+                            <a class="navbar-brand" href="index.html">
+                                <h1 class="h2 Color">
+                                    <i class="fas fa-shopping-cart Color__logo"></i>
+                                    <span class="Color__title">Oricam</span>
+                                </h1>
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div id="navbarContent" class="collapse navbar-collapse">
+                                <ul class="navbar-nav">
+                                    <li class="nav_item">                                   
+                                        <a class="nav-link text-center text-light" href="panier.html">Panier</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
                     </div>
                 </div>
             </div>
-        </footer>
-        
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        </div>
+    </header>
+    <!-- H E A D E R --> 
 
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <main class="container col-lg-10 mt-5">
+        <!--C A R O U S E L-->
+        <div class="container col-lg-12 mb-lg-5 mb-3">
+            <div class="row">
+                <div class="col">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                        </ol>
+                        <div class="carousel-inner rounded border border-info shadow">
+                            <div class="carousel-item active">
+                            <img src="images/fondappareilphoto2.jpg" class="d-block w-100" alt="Banniere appareil photo">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2>Équipement de photographie</h2>
+                                <p class="textBanner">Découvrez notre sélection d'appareil photo, que vous soyez amateurs ou experts en photographie<br> c'est ici que vous trouverez votre bonheur.</p>
+                                <div class="mb-3">
+                                    <a href="#appareils">Notre sélection</a>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="carousel-item">
+                            <img src="images/appareilphoto.jpg" class="d-block w-100" alt="Banniere appareil photo">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2>Équipement de photographie</h2>
+                                <p class="textBanner">Découvrez notre sélection d'appareil photo, que vous soyez amateurs ou experts en photographie<br> c'est ici que vous trouverez votre bonheur.</p>
+                                <div class="mb-3">
+                                    <a href="#appareils">Notre sélection</a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <!--C A R O U S E L-->
 
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        
-        <!--Barre de recherche-->
-        <script>
-        $(document).ready(function(){
-            $("#searchInput").on("keyup", function() {
-               var value = $(this).val().toLowerCase();
-               $("#photoList .col-lg-3").filter(function() {
-                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-               });
+        <!--P R O D U C T-->
+        <section>
+            <div class="container-fluid">
+                <h2 id="appareils" class="mb-4">Nos appareils photos</h2>
+                <div class="row mb-5">
+                    <div class="col">
+                    <input class="form-control" id="searchInput" type="text" placeholder="Recherchez un appareil photo...">
+                    </div>
+                </div>
+                <div id="photoList">
+                    <div class="row" id="listeproduit">
+                        <!-- <div class="col col-lg-3">
+                            <div class="card shadow border-info mb-5">
+                                <img src="${this.produits[i].imageUrl}" alt="">
+                                <div class="card-body">
+                                    <h3 class="card-title">${this.produits[i].name}</h3>
+                                    <p class="card-text lead">Prix : ${this.produits[i].price}€</p>
+                                    <p class="card-text">${this.produits[i].description}</p>
+                                    <a href="produit.html" class="btn btn-info"><i class="fas fa-info mr-2"></i>Voir ce produit</a>          
+                                </div>
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--P R O D U C T-->
+    </main>
+
+    <!--F O O T E R-->
+    <footer class="bg-dark mt-5 shadow-sm">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-center text-light mb-3 pt-3">Nos autres applications</h4>
+                    <ul class="list-inline text-center text-light">
+                        <li class="list-inline-item"><a href="#" class="text-white">Oribook</a></li>
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item"><a href="#" class="text-white">Oritextil</a></li>
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item"><a href="#" class="text-white">Orimeuble</a></li>
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item"><a href="#" class="text-white">Orinours</a></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--F O O T E R-->
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <!--Barre de recherche-->
+    <script>
+    $(document).ready(function(){
+        $("#searchInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#photoList .col-lg-3").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
-        </script>
-
-    </body>
+    });
+    </script>
+    <!--Barre de recherche-->
+</body>
 </html>
