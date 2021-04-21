@@ -2,16 +2,10 @@
 // Couleur Du Logo & Titre // 
 .Color
 {
-  &__logo
-    {  
-        background-image: linear-gradient($cyan, $purple);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-weight: 600;
-    }
     &__title
     {
-        background-image: linear-gradient($cyan, $purple);
+        margin-left: -8px;
+        background-image: linear-gradient($primary, $purple);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
