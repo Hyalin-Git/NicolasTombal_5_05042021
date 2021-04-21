@@ -27,9 +27,9 @@ class Boutique {
                     <img src="${this.produits[i].imageUrl}" alt="Produit appareil photo">
                     <div class="card-body">
                         <h3 class="card-title">${this.produits[i].name}</h3>
-                        <p class="card-text lead mb-2">Prix : ${this.produits[i].price}€</p>
+                        <p class="card-text lead mb-2">Prix : ${this.produits[i].price / 100}.00 €</p>
                         <p class="card-text">${this.produits[i].description}</p>
-                        <a href="produit.html" class="btn btn-info"><i class="fas fa-info mr-2"></i>Voir ce produit</a>          
+                        <a href="produit.html?${this.produits[i]._id}" class="btn btn-info"><i class="fas fa-info mr-2"></i>Voir ce produit</a>          
                     </div>
                 </div>
             </div>
@@ -39,7 +39,24 @@ class Boutique {
 
     // Affiche le produit sollicité dans produit.html // 
     detailProduits() {
+        const tableLocation = window.location.href.split("?");
+        console.log(tableLocation);
+        fetch(`http://localhost:3000/api/${this.categorie}/${tableLocation[1]}`)
+        .then(responce => responce.json())
+        .then(responce => {
+            document.querySelector("#displayDetail img").src = responce.imageUrl
+            document.querySelector("#displayDetail .card-title").innerHTML = responce.name;
+            document.querySelector("#displayDetail .card-text").innerHTML = `${responce.price / 100}.00 €`;
+            
+            // Permet d'afficher les lenses dans les options //
 
+            const lensesSection = document.getElementsByClassName("lenseOption")[0];
+            for (let i = 0; i < responce.lenses.length; i++){
+                const lensesOption = document.createElement("option");
+                lensesOption.innerHTML = responce.lenses[i];
+                lensesSection.appendChild(lensesOption); 
+            };
+        })
     }
 }
 

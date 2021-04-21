@@ -13,7 +13,7 @@
     <title>Oricam</title>
 </head>
 
-<body class="bg-light">
+<body class="bg-light" onload="boutique.detailProduits()">
     <!--HEADER-->
     <header>
         <div class="bg-dark mb-4 shadow-sm">
@@ -43,6 +43,7 @@
             </div>
         </div>
     </header>
+    <!--HEADER-->
 
     <main>
         <!--Section du produit-->
@@ -50,19 +51,20 @@
             <div class="row" id="displayDetail">
                 <div class="col">
                     <div class="card border border-info shadow mb-5 mt-5">
-                        <img src="http://localhost:3000/images/vcam_1.jpg" alt="Appareil photo">
+                        <img src="" alt="Appareil photo">
                         <div class="card-body">
                             <h1 class="h5 card-title">Nom du produit</h1>
-                            <p class="card-text">Description</p>
-                            <p class="card-text">price</p>
+                            <p class="card-text lead"></p>
                             <div class="input-group mb-4 mt-4">
                                 <div class="input-group-prepend">
                                 <label class="input-group-text" for="inputGroupSelect01">Objectif</label>
                                 </div>
-                                <select class="custom-select text-truncate" id="inputGroupSelect01">
-                                <option selected>Choissiez la taille de l'objectif</option>
-                                <option value="1">35mm 1.4</option>
-                                <option value="2">50mm 1.6</option>
+                                <select class="custom-select text-truncate lenseOption" id="inputGroupSelect01">
+                                    <option disabled selected>Choissiez la taille de l'objectif</option>
+                                    <!--<option value="1"></option>
+                                    <option value="2"></option>
+                                    <option value="3"></option>
+                                    <option value="4"></option>-->
                                 </select>
                                 <div class="input-group mb-3 mt-3">
                                     <div class="input-group-prepend">
@@ -80,6 +82,7 @@
                 </div>
             </div>
         </div>
+        <!--Section du produit-->
     </main>
 
     <footer class="bg-dark mt-5 pb-3 shadow-sm">
