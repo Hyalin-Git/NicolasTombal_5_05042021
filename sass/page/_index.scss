@@ -1,15 +1,21 @@
-
 // Couleur Du Logo & Titre // 
-.Color
+
+.Colortitle
 {
-    &__title
-    {
-        margin-left: -8px;
-        background-image: linear-gradient($primary, $purple);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+    margin-left: -8px;
+    background-image: linear-gradient($primary, $purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
+.Colorcart
+{
+    background-image: linear-gradient($primary, $purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.3em;
+}
+
 
 // Taille Text De La Banniere // 
 .textBanner
