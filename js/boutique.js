@@ -102,8 +102,8 @@ class Boutique {
 
             // Ajout des informations des produits 
             const img = document.createElement("img");
-            img.classList.add("float-left","shadow-sm", "col-1");
-            img.style.maxWidth="115px";
+            img.classList.add("img-fluid", "shadow", "rounded", "border", "border-dark");
+            img.style.maxWidth="95px";
             img.src = product.imageUrl;
             th.appendChild(img);
 
@@ -141,13 +141,14 @@ class Boutique {
         })
 
         // rendre le boutton delete fonctionnel // 
-        for (let i=0; i < this.panier.length; i++) {
+        for (let i = 0; i < this.panier.length; i++) {
             const btnRemoveProductFromCart = document.getElementsByClassName("btn-remove-product-from-cart")[i];
             btnRemoveProductFromCart.addEventListener("click", (event) => {
                 event.preventDefault();
+                location.reload(5000);
     
                 // Supprime l'article du localStorage
-                this.panier.splice(i,1);
+                this.panier.splice(i, 1 );
                 localStorage.setItem("cart", JSON.stringify(this.panier));
     
                 // Enlève l'affichage de la ligne //
@@ -156,11 +157,9 @@ class Boutique {
                 } else {
                     event.target.parentElement.parentElement.remove();
                 }
-    
-                // Refresh nombre de produit et total //
-               
             })
         }
+        calculateTotal(this.panier, "subtotal");    // calcul le prix total du panier // 
     }
 }
 
