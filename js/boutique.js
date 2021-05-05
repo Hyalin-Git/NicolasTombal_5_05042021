@@ -66,20 +66,19 @@ class Boutique {
             const btnAddToCart = document.getElementsByClassName("btn-add-to-cart")[0];
             btnAddToCart.addEventListener("click", (event) => {                         
                 event.preventDefault();
-
+                
                 const selectedOption = document.getElementsByClassName("form-control")[0].value;
-                const optionByDefault = "Choissiez la taille de l'objectif";
+                const optionByDefault = "Choisissez la taille de l'objectif";
 
                 if (selectedOption === optionByDefault){    // Si aucun objectif est choisi met l'alert // 
                     alert("Veuillez choisir un objectif");
                 } else {
-
-                    var optionToSend = selectedOption;  // Sinon, conserve l'objectif et insère le produit choisi // 
+                    var optionToSend = selectedOption; // Sinon, conserve l'objectif et insère le produit choisi // 
                     let infoToPush = {...response, option : optionToSend}; 
                     this.panier.push(infoToPush); 
+                    $(".alert-success").show() // affiche l'alert success de l'ajout au panier // 
                     console.log(this.panier);
                 }
-
                 localStorage.setItem("cart",JSON.stringify(this.panier));  // Envoie au localStorage //    
             }) 
         })
@@ -119,7 +118,22 @@ class Boutique {
 
             const quantity = document.createElement("td");
             quantity.classList.add("align-middle");
-            quantity.innerHTML = 1;
+            quantity.insertAdjacentHTML("beforeend", `
+            <form>
+                <select class="border border-info rounded">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </form>
+            `)
             tr.appendChild(quantity);
            
             const price = document.createElement("td");
@@ -130,13 +144,13 @@ class Boutique {
 
             // Ajout du boutton delete // 
             const removeProduct = document.createElement("td");
-            removeProduct.classList.add("btn", "btn-danger", "ml-3", "btn-remove-product-from-cart", "px-4","mx-3", "my-3")
+            removeProduct.classList.add("btn", "btn-danger", "btn-remove-product-from-cart", "px-4", "my-3")
             removeProduct.href = "#";
             removeProduct.type = "button";
             tr.appendChild(removeProduct);
 
             const iconDelete = document.createElement("i");
-            iconDelete.classList.add("fas","fa-trash-alt");
+            iconDelete.classList.add("far","fa-trash-alt");
             removeProduct.appendChild(iconDelete)
         })
 
@@ -145,21 +159,46 @@ class Boutique {
             const btnRemoveProductFromCart = document.getElementsByClassName("btn-remove-product-from-cart")[i];
             btnRemoveProductFromCart.addEventListener("click", (event) => {
                 event.preventDefault();
-                location.reload(5000);
+                location.reload();
     
                 // Supprime l'article du localStorage
                 this.panier.splice(i, 1 );
                 localStorage.setItem("cart", JSON.stringify(this.panier));
-    
-                // Enlève l'affichage de la ligne //
-                if(event.target.parentElement.classList == "tr") {
-                    event.target.parentElement.remove();
-                } else {
-                    event.target.parentElement.parentElement.remove();
-                }
             })
         }
-        calculateTotal(this.panier, "subtotal");    // calcul le prix total du panier // 
+        
+        calculateTotal(this.panier, "subtotal");   // calcul le prix total du panier // 
+    }
+
+    orderPurchase() {
+        // Confirmation d'achat // 
+        const order = document.getElementById ("confirmPurchase")
+        order.addEventListener("click", (event) => {
+            event.preventDefault();
+            
+            const account = JSON.parse(localStorage.getItem("account"));
+            let products = [];
+            this.panier.forEach (product => {
+                products.push(product._id)
+            })
+
+            if (this.panier.length > 0 && account) {
+                const body = JSON.stringify({account, products});
+                post("/order", body)
+                .then(data => {
+                    console.log(data)
+
+                    localStorage.setItem("data", JSON.stringify(data));
+
+                    localStorage.removeItem("cart");
+                    window.location = confirmation.html;
+                })
+            }  else if (products.length == 0){ // Si le panier est vide
+                alert ("Y'a forcément quelque chose qui vous tente?")
+            } else if (!account) { // si le contact n'est pas renseigner
+                $(".alert-danger").show()
+            }
+        })
     }
 }
 

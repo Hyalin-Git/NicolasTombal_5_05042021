@@ -14,5 +14,4 @@ const calculateTotal = (arrayOfProducts , idToInner) => {
     // prix rattaché à subtotal
     const subtotal = document.getElementById(idToInner);
     subtotal.innerHTML = sumFormated;
-
 }
