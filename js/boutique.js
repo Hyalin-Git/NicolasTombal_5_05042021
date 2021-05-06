@@ -170,35 +170,16 @@ class Boutique {
         calculateTotal(this.panier, "subtotal");   // calcul le prix total du panier // 
     }
 
+    // Ajout d'un Event Listenner sur le boutton passer à la commande avec la fonction sendOrder //
     orderPurchase() {
-        // Confirmation d'achat // 
-        const order = document.getElementById ("confirmPurchase")
-        order.addEventListener("click", (event) => {
-            event.preventDefault();
-            
-            const account = JSON.parse(localStorage.getItem("account"));
-            let products = [];
-            this.panier.forEach (product => {
-                products.push(product._id)
-            })
+        document.getElementById("confirmPurchase").onclick = (event) => {
+            event.preventDefault()
+            sendOrder()
+        }
+    }
 
-            if (this.panier.length > 0 && account) {
-                const body = JSON.stringify({account, products});
-                post("/order", body)
-                .then(data => {
-                    console.log(data)
+    confirmation() {
 
-                    localStorage.setItem("data", JSON.stringify(data));
-
-                    localStorage.removeItem("cart");
-                    window.location = confirmation.html;
-                })
-            }  else if (products.length == 0){ // Si le panier est vide
-                alert ("Y'a forcément quelque chose qui vous tente?")
-            } else if (!account) { // si le contact n'est pas renseigner
-                $(".alert-danger").show()
-            }
-        })
     }
 }
 
