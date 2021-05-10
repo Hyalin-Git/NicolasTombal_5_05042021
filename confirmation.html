@@ -11,7 +11,9 @@
             <link rel="stylesheet" href="css\style.css">
 
             <script src="https://kit.fontawesome.com/a2cde35cc4.js" crossorigin="anonymous"></script>
-            <script src="js/boutique.js"></script>
+            <script src="js/config.js" defer></script>
+            <script src="js/boutique.js " defer></script>
+            <script src="js/utils/totalprice.js" defer></script>
 
             <title>Oricam - L'application de vente d'appareil photo</title>
     </head>
@@ -50,10 +52,24 @@
                 <div class="row">
                     <div class="col">
                         <div class="jumbotron border border-info pb-5">
-                            <h2 class="text-center">Merci pour votre commande, [name] !</h2>
+                            <h2 class="text-center">Merci pour votre commande, <span id="nom-prénom"></span> !</h2>
                             <hr class="my-4 bg-info">
-                            <p class="lead text-center">Montal total de votre commande :</p>
+                            <p class="lead text-center">Récapitulatif de votre commande</p>
+                            <hr class="my-4 bg-info">
+
+                            <p class="lead text-center">Votre adresse de livraison :</p>
+                            <p class="text-center" id="address"></p>
+                            <p class="text-center" id="city"></p>
+
+                            <p class="lead text-center">produit(s) commandé(s) :</p>
+                            <p class="text-center" id="productOrdered"></p>
+
+                            <p class="lead text-center">Montant total :</p>
+                            <p class="text-center" id="subtotal"></p>
+
+
                             <p class="lead text-center">Votre numéro de commande :</p>
+                            <p class="text-center" id="orderId"></p>
                             <div class="text-center">
                                 <hr class="my-4 bg-info">
                                 <a class="btn btn-outline-info btn-lg mt-3" href="index.html" role="button">Retour à l'acceuil</a>
@@ -64,7 +80,7 @@
             </div>
         </main>
 
-        <footer class="bg-dark mt-5 shadow-sm fixed-bottom">
+        <footer class="bg-dark mt-5 shadow-sm pb-4 pt-4">
             <div class="container">
                 <div class="row">
                     <div class="col">

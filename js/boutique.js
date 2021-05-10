@@ -170,16 +170,61 @@ class Boutique {
         calculateTotal(this.panier, "subtotal");   // calcul le prix total du panier // 
     }
 
-    // Ajout d'un Event Listenner sur le boutton passer à la commande avec la fonction sendOrder //
+    // Ajout d'un Event Listenner sur le boutton passer à la commande //
     orderPurchase() {
-        document.getElementById("confirmPurchase").onclick = (event) => {
-            event.preventDefault()
-            sendOrder()
-        }
+       const confirmOrder = document.getElementById("confirmPurchase");
+       confirmOrder.addEventListener("click", (event) => {
+           event.preventDefault();
+
+            // récupère le contact et le tableau de produits dans le localStorage // 
+            const contact = JSON.parse(localStorage.getItem("contact"));
+            let products = [];
+            this.panier.forEach(product => {
+                products.push(product._id);
+            })
+
+            // envoie du contact et la commande à l'API et récupère le numéro de commande // 
+
+            if (products.length > 0 && contact) { // Vérification si le panier est non vide et que les infos clients sont présentes
+                const body = JSON.stringify({contact,  products});
+                post("/order", body)
+                    .then(data => {
+                        console.log(data);
+                        // conversion des données contact et products dans data // 
+                        localStorage.setItem("data", JSON.stringify(data));
+                        // Mise à zéro du panier //
+                        localStorage.removeItem("cart");
+                        window.location = "confirmation.html"; // redirection vers la page confirmation.html // 
+                    })    
+            } else if (products.length == 0){ // Si le panier est vide
+                alert ("Veuillez choisir un produit avant de passer commande")
+            } else if (!contact) { // si le contact n'est pas renseigner un message s'affiche // 
+                $(".alert-danger").show();
+            }
+       });
     }
 
     confirmation() {
+        const data = JSON.parse(localStorage.getItem("data"));
+        console.log(data);
 
+        document.getElementById("nom-prénom").innerHTML = data.contact.lastName + " " + data.contact.firstName; // message personnalisé avec le nom et prénom du client //  
+
+        document.getElementById("address").innerHTML = data.contact.address;  // adresse de livraison // 
+
+        document.getElementById("city").innerHTML = data.contact.city;  // ainsi que la ville // 
+
+        document.getElementById("orderId").innerHTML = data.orderId;   // le numéro de la commande // 
+
+        calculateTotal(data.products, "subtotal")   // le montant total de la commande // 
+
+        const productsCommanded = document.getElementById("productOrdered");
+
+        for (let i=0; i < data.products.length ; i++) {
+            const nameProduct = document.createElement("p");
+            nameProduct.innerHTML = "- "+ data.products[i].name;
+            productsCommanded.appendChild(nameProduct);
+        };
     }
 }
 

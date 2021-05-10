@@ -9998,6 +9998,10 @@ h3 {
   font-size: 1.3em;
 }
 
+.unvisible {
+  display: none !important;
+}
+
 #ourSelection {
   width: 55%;
   padding-top: 13.3px;

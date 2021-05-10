@@ -11,8 +11,8 @@
             <link rel="stylesheet" href="css\style.css">
 
             <script src="https://kit.fontawesome.com/a2cde35cc4.js" crossorigin="anonymous"></script>
-            <script src="js/utils/sendtheorder.js" defer></script>
             <script src="js/utils/form.js" defer></script>
+            <script src="js/config.js" defer></script>
             <script src="js/boutique.js" defer></script>
             
             <script src="js/utils/totalprice.js"></script>
@@ -53,7 +53,7 @@
         <div>
             <main class="container table-responsive  mb-5">
                 <div class="row">
-                    <div class="bg-dark border shadow border-info rounded pb-2 col-12 col-lg-12 overflow-auto">
+                    <div class="bg-dark border shadow border-info rounded pb-3 col-12 col-lg-12 overflow-auto">
                         <table class="table table-hover bg-light">
                             <h2 class=" text-light mb-2 my-3">Résumé des produits dans le panier</h2>
                             <thead>
@@ -86,17 +86,27 @@
                                 </tr>
                             </tfoot>
                         </table>
-                        
+                        <div class="text-center mt-3">
+                            <a class="btn btn-info px-3" href="#" id="confirmPurchase">
+                                <i class="fas fa-shopping-cart mr-2"></i>Passer la commande 
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
-                <section class="container mt-1 pt-3">
+                <section class="container mt-1 mb-5 pt-3">
                     <div class="row">
                         <div class="col col-lg-6 px-4 pt-3 pb-4 bg-dark border shadow border-info rounded">
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <strong>Attention</strong> veuillez saisir correctement vos coordonnées dans le formulaire ci-dessous.
+                                <strong>Attention</strong> Veuillez remplir le formulaire ci-dessous.
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                            <div id="msgSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
+                                <h5 class="alert-heading">Félicitations <span id="first-name-saved"></span> ! Vous avez réussi votre enregistrement !</h5>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
                                 </button>
                             </div>
                             <h2 class="text-light mb-3">Vos coordonnées</h2>
@@ -118,7 +128,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="address" class="text-light"> Code postal :</label>
-                                    <input type="text" class="form-control" id="zip-code" placeholder="45 150" required/>
+                                    <input type="text" class="form-control" id="zip-code" placeholder="45150" required/>
                                     <div class="result"></div>
                                 </div>
                                 <div class="form-group">
@@ -130,12 +140,16 @@
                                     <label for="email" class="text-light"> Email :</label>
                                     <input type="email" class="form-control" id="email" placeholder="email@orinoco.com" required/>
                                     <div class="result"></div>
-                                </div>     
+                                </div>   
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-info mt-3 text-light"  id="account-submited">Enregistrer</button>
+                                </div>  
                             </form>
-                            <div class="text-center mt-4">
-                                <a class="btn btn-info px-3" href="#" id="confirmPurchase">
-                                    <i class="fas fa-shopping-cart mr-2"></i>Passer la commande 
-                                </a>
+                            <div class="mx-5 mx-lg-3 unvisible flex-column" id="saved-info">
+                                <div class="text-light text-break" id="registered-infos">Nous vous livrons à cette adresse :</div>
+                                <div class="text-center">
+                                    <button class="btn btn-info text-light mt-3" id="btn-modify">Modifier</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -143,11 +157,11 @@
             </main>
         </div>
 
-        <footer class="bg-dark mt-5 shadow-sm">
+        <footer class="bg-dark mt-5 pb-3 pt-4 shadow-sm">
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h4 class="text-center text-light mb-3 pt-3">Nos autres applications</h4>
+                        <h4 class="text-center text-light mb-3">Nos autres applications</h4>
                         <ul class="list-inline text-center text-light">
                             <li class="list-inline-item"><a href="#" class="text-white">Oribook</a></li>
                             <li class="list-inline-item">&middot;</li>
