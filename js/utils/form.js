@@ -11,7 +11,7 @@ const regex = {
 };
 
 // Compare les données saisies et les regex avant l'autorisation d'enregistrer //
-const validateInputWithRegex = (idHTML, regex, title) => {
+const validateInput = (idHTML, regex, title) => {
 
     idHTML.addEventListener("input", (event) => {
 
@@ -42,12 +42,12 @@ const codePostal = document.getElementById("zip-code");
 const city = document.getElementById("city");
 const email = document.getElementById("email");
 
-validateInputWithRegex(lastName, regex.lastName, "Nom");
-validateInputWithRegex(firstName, regex.firstName, "Prénom");
-validateInputWithRegex(address, regex.address, "Adresse");
-validateInputWithRegex(codePostal, regex.codePostal, "Code postal");
-validateInputWithRegex(city, regex.city, "Ville");
-validateInputWithRegex(email, regex.email, "Email");
+validateInput(lastName, regex.lastName, "Nom");
+validateInput(firstName, regex.firstName, "Prénom");
+validateInput(address, regex.address, "Adresse");
+validateInput(codePostal, regex.codePostal, "Code postal");
+validateInput(city, regex.city, "Ville");
+validateInput(email, regex.email, "Email");
 
 
 
@@ -125,9 +125,7 @@ contactSubmited.addEventListener("click", (event) => {
     toggleVisibilityBlock();
 })
 
-
 //  Si le client s'est déjà enregistré affiche directement le bloc avec les informations ainsi que le bouton modifier si il doit changer de coordonnées //
-
 if (localStorage.getItem("contact")) {
     
     replaceBlockRegisteredInfos(); 
@@ -136,8 +134,7 @@ if (localStorage.getItem("contact")) {
     toggleVisibilityBlock();
 }
 
-// Si le bouton modifier est cliqué affiche alors le formulaire et rends invisible le bloc avec les données du client //
-
+// Si le bouton modifier est cliqué affiche alors le formulaire redeviens et rends invisible le bloc avec les données du client //
 btnModify.addEventListener("click", (event) => {
     event.preventDefault();
 

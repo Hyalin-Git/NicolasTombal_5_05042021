@@ -1,5 +1,5 @@
 const formatInPrice = (price) => {
-    return new Intl.NumberFormat('de-DE', {style: 'currency', currency: 'EUR'}).format(price/100);
+    return new Intl.NumberFormat("de-DE", {style: "currency", currency: "EUR"}).format(price/100);
 }
 
 const calculateTotal = (arrayOfProducts , idToInner) => {

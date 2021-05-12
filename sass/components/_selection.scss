@@ -1,9 +1,9 @@
-#ourSelection{
+.ourSelection{
     @include btn;
     @include animationbtn;
 }
 
-#ourSelection > a 
+.ourSelection > a 
 {
     text-decoration: none;
 }

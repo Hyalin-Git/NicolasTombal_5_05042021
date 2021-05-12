@@ -39,7 +39,7 @@ class Boutique {
                     </div>
                 </div>
             </div>
-            `);
+            `);   
         }
     }
 
@@ -75,7 +75,7 @@ class Boutique {
                 } else {
                     var optionToSend = selectedOption; // Sinon, conserve l'objectif et insère le produit choisi // 
                     let infoToPush = {...response, option : optionToSend}; 
-                    this.panier.push(infoToPush); 
+                    this.panier.push (infoToPush); 
                     $(".alert-success").show() // affiche l'alert success de l'ajout au panier // 
                     console.log(this.panier);
                 }
@@ -120,7 +120,7 @@ class Boutique {
             quantity.classList.add("align-middle");
             quantity.insertAdjacentHTML("beforeend", `
             <form>
-                <select class="border border-info rounded">
+                <select class="border border-info rounded" id="select">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -189,7 +189,6 @@ class Boutique {
                 const body = JSON.stringify({contact,  products});
                 post("/order", body)
                     .then(data => {
-                        console.log(data);
                         // conversion des données contact et products dans data // 
                         localStorage.setItem("data", JSON.stringify(data));
                         // Mise à zéro du panier //
@@ -226,6 +225,6 @@ class Boutique {
             productsCommanded.appendChild(nameProduct);
         };
     }
-}
+};
 
 let boutique = new Boutique();

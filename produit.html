@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <script src="https://kit.fontawesome.com/a2cde35cc4.js" crossorigin="anonymous"></script>
     <script src="js/boutique.js"></script>
@@ -19,11 +19,11 @@
 <body class="bg-light" onload="boutique.detailProduits()">
     <!--HEADER-->
     <header>
-        <div class="bg-dark mb-4 shadow-sm">
+        <div class="bg-dark mb-4 shadow-sm Color">
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <nav class="col navbar navbar-expand-md navbar-dark d-flex justify-content-between">
+                        <nav class="col navbar navbar-expand-md navbar-dark">
                             <a class="navbar-brand" href="index.html">
                                 <h1>
                                     <img src="logo/LogoOricam.png" alt="logo oricam">
@@ -35,8 +35,8 @@
                             </button>
                             <div id="navbarContent" class="collapse navbar-collapse">
                                 <ul class="navbar-nav ml-auto">
-                                    <li class="nav_item">                                   
-                                        <a class="nav-link text-light" href="panier.html"><i class="fas fa-shopping-cart mr-1 Colorcart"></i> Panier</a>
+                                    <li class="nav-text">                                   
+                                        <a class="nav-link text-center text-light" href="panier.html"><i class="fas fa-shopping-cart mr-1 Colorcart"></i>Panier</a>
                                     </li>
                                 </ul>
                             </div>
@@ -56,7 +56,7 @@
                     <div class="card border border-info shadow mb-5 mt-5 pb-4">
                         <img src="" alt="Appareil photo">
                         <div class="card-body">
-                            <h1 class="h3 card-title">Nom du produit</h1>
+                            <h2 class="h3 card-title">Nom du produit</h2>
                             <p class="card-text lead"></p>
                             <div class="alert alert-success" id="success_message" role="alert">L'appareil a bien était ajouté au panier !<i class="fas fa-check-circle ml-1"></i></div>
                             <div class="input-group mb-4 mt-4">
@@ -75,7 +75,6 @@
                                 <a href="index.html" class="btn btn-outline-secondary d-none d-sm-block">Retour à l'acceuil</a>
                                 <button id="success" class="btn btn btn-success btn-add-to-cart" type="submit"><i class="fas fa-cart-plus mr-2"></i>Ajouter au panier</button>
                             </div>
-                           
                         </div>
                     </div>
                 </div>
@@ -84,11 +83,11 @@
         <!--Section du produit-->
     </main>
 
-    <footer class="bg-dark mt-5 pb-3 shadow-sm">
+    <footer class="bg-dark mt-5 shadow-sm">
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h4 class="text-center text-light mb-3 pt-3">Nos autres applications</h4>
+                    <h3 class="h4 text-center text-light mb-3 pt-3">Nos autres applications</h3>
                     <ul class="list-inline text-center text-light">
                         <li class="list-inline-item"><a href="#" class="text-white">Oribook</a></li>
                         <li class="list-inline-item">&middot;</li>
@@ -97,7 +96,7 @@
                         <li class="list-inline-item"><a href="#" class="text-white">Orimeuble</a></li>
                         <li class="list-inline-item">&middot;</li>
                         <li class="list-inline-item"><a href="#" class="text-white">Orinours</a></li>
-                        </ul>
+                    </ul>
                 </div>
             </div>
         </div>
