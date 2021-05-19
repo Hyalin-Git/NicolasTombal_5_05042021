@@ -21,9 +21,10 @@ const post = (parameter, dataToSend) => {
         headers : myHeader,
         body : dataToSend
     };
-
+    
     return fetch (apiUrl + parameter, post) // retourne la promesse du fetch qui retourne l'objet json
     .then ((response) => response.json())
     .then (json => json)
     .catch (err => alert(err + apiUrl + parameter))
 }
+

@@ -1,189 +1,199 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-            <link rel="preconnect" href="https://fonts.gstatic.com">
-            <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Orinoco est un site e-commerce, il existe plusieurs applications comme Oricam pour les appareils photo ou encore, Oribook pour les livres...">
 
-            <script src="https://kit.fontawesome.com/a2cde35cc4.js" crossorigin="anonymous"></script>
-            <script src="js/utils/form.js" defer></script>
-            <script src="js/config.js" defer></script>
-            <script src="js/boutique.js" defer></script>
-            
-            <script src="js/utils/totalprice.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 
-            <title>Oricam - L'application de vente d'appareil photo</title>
-    </head>
+    <script src="https://kit.fontawesome.com/a2cde35cc4.js" crossorigin="anonymous"></script>
+    <script src="js/utils/form.js" defer></script>
+    <script src="js/config.js" defer></script>
+    <script src="js/boutique.js" defer></script>
     
-    <body class="bg-light" onload="boutique.productInCart(), boutique.orderPurchase()">
-        <header>
-            <div class="bg-dark mb-4 shadow-sm">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <nav class="col navbar navbar-expand-md navbar-dark">
-                                <a class="navbar-brand" href="index.html">
-                                    <h1>
-                                        <img src="logo/LogoOricam.png" alt="logo oricam">
-                                        <span class="Colortitle">ricam</span>
-                                    </h1>
-                                </a>
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div id="navbarContent" class="collapse navbar-collapse">
-                                    <ul class="navbar-nav ml-auto">
-                                        <li class="nav_item">                                   
-                                            <a class="nav-link text-center text-light" href="panier.html"><i class="fas fa-shopping-cart mr-1 Colorcart"></i> <span id="nbProduct"></span>Panier</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+    <script src="js/utils/totalprice.js"></script>
 
-        <div>
-            <main class="container table-responsive  mb-5">
-                <div class="row">
-                    <div class="bg-dark border shadow border-info rounded pb-3 col-12 col-lg-12 overflow-auto">
-                        <h2 class="text-light mb-2 my-3">Résumé des produits dans le panier</h2>
-                        <table class="table table-hover bg-light">
-                            <thead>
-                                <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col">Nom de l'appareil photo</th>
-                                    <th scope="col">Objectif de l'appareil</th>
-                                    <th scope="col">Qté</th>
-                                    <th scope="col">Prix € TTC</th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody id="resume">
-                                <!-- <tr>
-                                    <th scope="row"></th>
-                                    <td>appareil photo</td>
-                                    <td>lenses</td>
-                                    <td>qty</td>
-                                    <td>price</td>
-                                    <td>remove button</td>
-                                    </tr> -->
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th scope="row"></th>
-                                    <td>Sous Total</td>
-                                    <td id="qty"></td>
-                                    <td></td>
-                                    <td id="subtotal"></td>
-                                    <td></td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                        <div class="text-center mt-3">
-                            <a class="btn btn-info px-3" href="#" id="confirmPurchase">
-                                <i class="fas fa-shopping-cart mr-2"></i>Passer la commande 
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <section class="container mt-1 mb-5 pt-3">
-                    <div class="row">
-                        <div class="col col-lg-6 px-4 pt-3 pb-4 bg-dark border shadow border-info rounded">
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <strong>Attention</strong> Veuillez remplir le formulaire ci-dessous.
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                            <div id="msgSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
-                                <h5 class="alert-heading">Félicitations <span id="first-name-saved"></span> ! Vous avez réussi votre enregistrement !</h5>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <h2 class="text-light mb-3">Vos coordonnées</h2>
-                            <form id="contact-form">
-                                <div class="form-group">
-                                    <label for="last-name" class="text-light"> Nom :</label>
-                                    <input type="text" class="form-control" id="last-name" placeholder="Parker" required/>
-                                    <div class="result"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="first-name" class="text-light"> Prénom :</label>
-                                    <input type="text" class="form-control" id="first-name" placeholder="Peter" required/>
-                                    <div class="result"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="address" class="text-light"> Adresse :</label>
-                                    <input type="text" class="form-control" id="address" placeholder="20 Ingram Street" required/>
-                                    <div class="result"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="address" class="text-light"> Code postal :</label>
-                                    <input type="text" class="form-control" id="zip-code" placeholder="45150" required/>
-                                    <div class="result"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="city" class="text-light"> Ville :</label>
-                                    <input type="text" class="form-control" id="city" placeholder="New York" required/>
-                                    <div class="result"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email" class="text-light"> Email :</label>
-                                    <input type="email" class="form-control" id="email" placeholder="email@orinoco.com" required/>
-                                    <div class="result"></div>
-                                </div>   
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-info mt-3 text-light"  id="account-submited">Enregistrer</button>
-                                </div>  
-                            </form>
-                            <div class="mx-5 mx-lg-3 unvisible flex-column" id="saved-info">
-                                <div class="text-light text-break" id="registered-infos">Nous vous livrons à cette adresse :</div>
-                                <div class="text-center">
-                                    <button class="btn btn-info text-light mt-3" id="btn-modify">Modifier</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </main>
-        </div>
-
-        <footer class="bg-dark mt-5 shadow-sm">
+    <title>Oricam - L'application de vente d'appareil photo</title>
+</head>
+    
+<body class="bg-light" onload="boutique.productInCart(), boutique.orderPurchase()">
+    <!-- H E A D E R -->
+    <header>
+        <div class="bg-dark mb-4 shadow-sm">
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h3 class="h4 text-center text-light mb-3 pt-3">Nos autres applications</h3>
-                        <ul class="list-inline text-center text-light">
-                            <li class="list-inline-item"><a href="#" class="text-white">Oribook</a></li>
-                            <li class="list-inline-item">&middot;</li>
-                            <li class="list-inline-item"><a href="#" class="text-white">Oritextil</a></li>
-                            <li class="list-inline-item">&middot;</li>
-                            <li class="list-inline-item"><a href="#" class="text-white">Orimeuble</a></li>
-                            <li class="list-inline-item">&middot;</li>
-                            <li class="list-inline-item"><a href="#" class="text-white">Orinours</a></li>
-                        </ul>
+                        <nav class="col navbar navbar-expand-md navbar-dark">
+                            <a class="navbar-brand" href="index.html">
+                                <h1>
+                                    <img src="logo/LogoOricam.png" alt="logo oricam">
+                                    <span class="Colortitle">ricam</span>
+                                </h1>
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div id="navbarContent" class="collapse navbar-collapse">
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav_item">                                   
+                                        <a class="nav-link text-center text-light" href="panier.html"><i class="fas fa-shopping-cart mr-1 Colorcart"></i> <span id="nbProduct"></span>Panier</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
                     </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </header>
+    <!-- H E A D E R -->
+    
+    
+    <main class="container table-responsive  mb-5">
+        <!-- C A R T -->
+        <div class="row">
+            <div class="bg-dark border shadow border-info rounded pb-3 col-12 col-lg-12 overflow-auto">
+                <h2 class="text-light mb-2 my-3">Résumé des produits dans le panier</h2>
+                <table class="table table-hover bg-light">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Nom de l'appareil photo</th>
+                            <th scope="col">Objectif de l'appareil</th>
+                            <th scope="col">Qté</th>
+                            <th scope="col">Prix € TTC</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="resume">
+                        <!-- <tr>
+                            <th scope="row"></th>
+                            <td>appareil photo</td>
+                            <td>lenses</td>
+                            <td>qty</td>
+                            <td>price</td>
+                            <td>remove button</td>
+                            </tr> -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>Sous Total</td>
+                            <td></td>
+                            <td></td>
+                            <td id="subtotal"></td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="text-center mt-3">
+                    <a class="btn btn-info px-3" href="#" id="confirmPurchase">
+                        <i class="fas fa-shopping-cart mr-2"></i>Passer la commande 
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- C A R T -->
+        
+        <!-- F O R M -->
+        <section class="container mt-1 mb-5 pt-3">
+            <div class="row">
+                <div class="col col-lg-6 px-4 pt-3 pb-4 bg-dark border shadow border-info rounded">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Attention</strong> Veuillez remplir le formulaire ci-dessous.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                    <div id="msgSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
+                        <h5 class="alert-heading">Félicitations <span id="first-name-saved"></span> ! Vous avez réussi votre enregistrement !</h5>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <h2 class="text-light mb-3">Vos coordonnées</h2>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="last-name" class="text-light"> Nom :</label>
+                            <input type="text" class="form-control" id="last-name" placeholder="Parker" required/>
+                            <div class="result"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="first-name" class="text-light"> Prénom :</label>
+                            <input type="text" class="form-control" id="first-name" placeholder="Peter" required/>
+                            <div class="result"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="text-light"> Adresse :</label>
+                            <input type="text" class="form-control" id="address" placeholder="20 Ingram Street" required/>
+                            <div class="result"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="text-light"> Code postal :</label>
+                            <input type="text" class="form-control" id="zip-code" placeholder="45150" required/>
+                            <div class="result"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="city" class="text-light"> Ville :</label>
+                            <input type="text" class="form-control" id="city" placeholder="New York" required/>
+                            <div class="result"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="text-light"> Email :</label>
+                            <input type="email" class="form-control" id="email" placeholder="email@orinoco.com" required/>
+                            <div class="result"></div>
+                        </div>   
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-info mt-3 text-light"  id="account-submited">Enregistrer</button>
+                        </div>  
+                    </form>
+                    <div class="mx-5 mx-lg-3 unvisible flex-column" id="saved-info">
+                        <div class="text-light text-break" id="registered-infos">Nous vous livrons à cette adresse :</div>
+                        <div class="text-center">
+                            <button class="btn btn-info text-light mt-3" id="btn-modify">Modifier</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- F O R M -->
+    </main>
+    
 
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <!--F O O T E R-->
+    <footer class="bg-dark mt-5 shadow-sm">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="h4 text-center text-light mb-3 pt-3">Nos autres applications</h3>
+                    <ul class="list-inline text-center text-light">
+                        <li class="list-inline-item"><a href="#" class="text-white">Oribook</a></li>
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item"><a href="#" class="text-white">Oritextil</a></li>
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item"><a href="#" class="text-white">Orimeuble</a></li>
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item"><a href="#" class="text-white">Orinours</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--F O O T E R-->
 
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
-        <script>$(".alert").hide()</script>
-    </body>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script>$(".alert").hide()</script>
+</body>
 </html>

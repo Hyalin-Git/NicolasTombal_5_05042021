@@ -1,109 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-            <link rel="preconnect" href="https://fonts.gstatic.com">
-            <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Orinoco est un site e-commerce, il existe plusieurs applications comme Oricam pour les appareils photo ou encore, Oribook pour les livres...">
 
-            <script src="https://kit.fontawesome.com/a2cde35cc4.js" crossorigin="anonymous"></script>
-            <script src="js/config.js" defer></script>
-            <script src="js/boutique.js " defer></script>
-            <script src="js/utils/totalprice.js" defer></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 
-            <title>Oricam - L'application de vente d'appareil photo</title>
-    </head>
-    <body class="bg-light" onload="boutique.confirmation()">
-        <header>
-            <div class="bg-dark mb-4 shadow-sm">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <nav class="col navbar navbar-expand-md navbar-dark">
-                                <a class="navbar-brand" href="index.html">
-                                    <h1>
-                                        <img src="logo/LogoOricam.png" alt="logo oricam">
-                                        <span class="Colortitle">ricam</span>
-                                    </h1>
-                                </a>
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div id="navbarContent" class="collapse navbar-collapse">
-                                    <ul class="navbar-nav ml-auto">
-                                        <li class="nav_item">                                   
-                                            <a class="nav-link text-center text-light" href="panier.html"><i class="fas fa-shopping-cart mr-1 Colorcart"></i> Panier</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+    <script src="https://kit.fontawesome.com/a2cde35cc4.js" crossorigin="anonymous"></script>
+    <script src="js/config.js" defer></script>
+    <script src="js/boutique.js " defer></script>
+    <script src="js/utils/totalprice.js" defer></script>
 
-        <main>
-            <div class="container mt-5 mb-5">
-                <div class="row">
-                    <div class="col">
-                        <div class="jumbotron border border-info pb-5">
-                            <h2 class="text-center">Merci pour votre commande, <span id="nom-prénom"></span> !</h2>
-                            <hr class="my-4 bg-info">
-                            <p class="lead text-center">Récapitulatif de votre commande</p>
-                            <hr class="my-4 bg-info">
+    <title>Oricam - L'application de vente d'appareil photo</title>
+</head>
 
-                            <p class="lead text-center">Votre adresse de livraison :</p>
-                            <p class="text-center" id="address"></p>
-                            <p class="text-center" id="city"></p>
-
-                            <p class="lead text-center">produit(s) commandé(s) :</p>
-                            <p class="text-center" id="productOrdered"></p>
-
-                            <p class="lead text-center">Montant total :</p>
-                            <p class="text-center" id="subtotal"></p>
-
-
-                            <p class="lead text-center">Votre numéro de commande :</p>
-                            <p class="text-center" id="orderId"></p>
-                            <div class="text-center">
-                                <hr class="my-4 bg-info">
-                                <a class="btn btn-outline-info btn-lg mt-3" href="index.html" role="button">Retour à l'acceuil</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <footer class="bg-dark mt-5 shadow-sm">
+<body class="bg-light" onload="boutique.confirmation()">
+    <header>
+        <div class="bg-dark mb-4 shadow-sm">
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h3 class="h4 text-center text-light mb-3 pt-3">Nos autres applications</h3>
-                        <ul class="list-inline text-center text-light">
-                            <li class="list-inline-item"><a href="#" class="text-white">Oribook</a></li>
-                            <li class="list-inline-item">&middot;</li>
-                            <li class="list-inline-item"><a href="#" class="text-white">Oritextil</a></li>
-                            <li class="list-inline-item">&middot;</li>
-                            <li class="list-inline-item"><a href="#" class="text-white">Orimeuble</a></li>
-                            <li class="list-inline-item">&middot;</li>
-                            <li class="list-inline-item"><a href="#" class="text-white">Orinours</a></li>
-                        </ul>
+                        <nav class="col navbar navbar-expand-md navbar-dark">
+                            <a class="navbar-brand" href="index.html">
+                                <h1>
+                                    <img src="logo/LogoOricam.png" alt="logo oricam">
+                                    <span class="Colortitle">ricam</span>
+                                </h1>
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div id="navbarContent" class="collapse navbar-collapse">
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav_item">                                   
+                                        <a class="nav-link text-center text-light" href="panier.html"><i class="fas fa-shopping-cart mr-1 Colorcart"></i> Panier</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
                     </div>
                 </div>
             </div>
-        </footer>
-        
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        </div>
+    </header>
 
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <!-- C O N F I R M A T I O N  D E  L A  C O M M A N D E -->
+    <main>
+        <div class="container mt-5 mb-5">
+            <div class="row">
+                <div class="col">
+                    <div class="jumbotron border border-info pb-5">
+                        <h2 class="text-center">Merci pour votre commande, <span id="nom-prénom"></span> !</h2>
+                        <hr class="my-4 bg-info">
+                        <p class="lead text-center">Récapitulatif de votre commande</p>
+                        <hr class="my-4 bg-info">
 
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    </body>
+                        <p class="lead text-center">Votre adresse de livraison :</p>
+                        <p class="text-center" id="address"></p>
+                        <p class="text-center" id="city"></p>
+
+                        <p class="lead text-center">produit(s) commandé(s) :</p>
+                        <p class="text-center" id="productOrdered"></p>
+
+                        <p class="lead text-center">Montant total :</p>
+                        <p class="text-center" id="subtotal"></p>
+
+                        <p class="lead text-center">Votre numéro de commande :</p>
+                        <p class="text-center" id="orderId"></p>
+                        <div class="text-center">
+                            <hr class="my-4 bg-info">
+                            <a class="btn btn-outline-info btn-lg mt-3" href="index.html" role="button">Retour à l'acceuil</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- C O N F I R M A T I O N  D E  L A  C O M M A N D E -->
+
+    <!--F O O T E R-->
+    <footer class="bg-dark mt-5 shadow-sm">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="h4 text-center text-light mb-3 pt-3">Nos autres applications</h3>
+                    <ul class="list-inline text-center text-light">
+                        <li class="list-inline-item"><a href="#" class="text-white">Oribook</a></li>
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item"><a href="#" class="text-white">Oritextil</a></li>
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item"><a href="#" class="text-white">Orimeuble</a></li>
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item"><a href="#" class="text-white">Orinours</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--F O O T E R-->
+
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
 </html>
