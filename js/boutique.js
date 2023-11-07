@@ -13,7 +13,7 @@ class Boutique {
 
     // Requête vers l'API //
     recupereProduits() {
-        fetch(`https://localhost:3000/api/${this.categorie}`)
+        fetch(`http://localhost:3000/api/${this.categorie}`)
         .then(response => response.json())
         .then(produits => { 
             this.produits = produits;
